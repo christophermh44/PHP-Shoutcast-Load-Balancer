@@ -70,6 +70,8 @@
 	/* Return the address of the server at which listener will be redirected */
 	function getServerAffected($serversObj, $format) {
 		$servers = filterServersOnFormat($serversObj, $format);
+		$defaultServer = getDefaultServer($serversObj);
+		$defaultServerUrl = 'http://'.$defaultServer['host'].':'.$defaultServer['port'].'/;';
 		$listeners = [];
 		foreach ($servers as $key => $server) {
 			list($current, $max) = getListenersFrom($server['host'], $server['port']);
@@ -79,7 +81,7 @@
 			}
 		}
 		$serversAffected = array_keys($listeners, min($listeners));
-		$serverAffected = isset($serversAffected[0]) ? $serversAffected[0] : getDefaultServer($serversObj);
+		$serverAffected = isset($serversAffected[0]) ? $serversAffected[0] : $defaultServerUrl;
 		return $serverAffected;
 	}
 
