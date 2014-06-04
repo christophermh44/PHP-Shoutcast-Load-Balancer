@@ -89,7 +89,7 @@
 		$servers = loadServers();
 		$formats = getFormats($servers);
 		$format = (isset($_GET['format']) && array_search($_GET['format'], $formats)) ? $_GET['format'] : getDefaultFormat($servers);
-		$redirect = getServerAffected($servers, $format)[0];
+		$redirect = getServerAffected($servers, $format);
 
 		if ($debug) {
 			var_dump($redirect);
