@@ -1,0 +1,15 @@
+{
+	"servers": {
+		"main": {
+			"host": "127.0.0.1",
+			"port": 8000,
+			"format": "high"
+		},
+		"relay": {
+			"host": "192.168.0.1",
+			"port": 8000,
+			"format": "high"
+		}
+	},
+	"default": "main"
+}
